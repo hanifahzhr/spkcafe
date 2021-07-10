@@ -1,25 +1,34 @@
+
 @extends('WEB.layout.app')
 @section('title','Spk Cafe Admin')
 @section('content')
-@include('WEB.home.navbar')
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                    <h2 class="mt-4">Kelola Admin</h2>
 
-                    <div>
-                    <a href="{{ url('user/create')}}" class="btn btn-primary btn-lg mt-4 mb-4 align-right"> Create Admin</a>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    @include('WEB.home.navbar')
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Kelola Admin</h1>
                     </div>
-                        <div class="card mb-4">
-                          
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Data Admin
-                            </div>
-                            <div class="card-body">
-                                @if (count($user_list) > 0)
-                                <table id="datatablesSimple">
-                                    <thead>
+
+                    <div class="d-flex justify-content-end">
+                        <div>
+                            <a href="{{ url('user/create')}}" class="btn btn-primary mt-4 mb-4 align-right"> Create Admin</a>
+                        </div>
+                    </div>
+
+                    <!-- DataTables Admin -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
@@ -29,77 +38,66 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 0; ?>
-                                    <?php foreach($user_list as $user): ?>
                                     <tr>
-                                        <!-- <th>1</th>
-                                        <th>Hanifah</th>
-                                        <th>hanifah@admin.co.id</th>
-                                        <th>Admin</th>
+                                        <td>1</td>
+                                        <td>Hanifah</td>
+                                        <td>hanifah@admin.co.id</td>
+                                        <td>Admin</td>
                                         <td>
-                                        <a href="{{ url('user/edit')}}" class="btn btn-warning"> Edit</a>
-                                        <a href="#" class="btn btn-danger"> Delete</a>
-                                        </td> -->
-                                        <td>{{ ++$i }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->level }}</td>
-                                        <td>
-                                            <div class="box-button">
-                                                {{ link_to('user/' . $user->id . '/edit', 'Edit', ['class' => 'btn btn-warning btn-sm']) }}
-                                            </div>
-                                            <div class="box-button">
-                                                {!! Form::open(['method' => 'DELETE', 'action' => ['userController@destroy', $user->id]]) !!}
-                                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                                                {!! Form::close() !!}
-                                        </div>
-                                    </td>
-                                </tr>
-                                <?php endforeach ?>
+                                        <a href="{{ url('user/edit')}}" class="btn btn-warning"> 
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
-                                @else
-                                    <p>Tidak ada data user.</p>
-                                @endif
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card mb-4">
-                          
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Create Data Admin
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                <div class="form-group mt-4">
-                                  <label for="inputnama">Nama </label>
-                                  <input type="nama" class="form-control" id="namaadmin" placeholder="Nama Lengkap">
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputemail">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="name@admin.co.id">
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputlevel">Level </label>
-                                    <input class="form-control" type="text" placeholder="Admin" readonly>
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputpass">Password</label>
-                                    <input type="password" class="form-control" id="pass" placeholder="Password">
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputpass">Confirmation Password</label>
-                                    <input type="password" class="form-control" id="conpass" placeholder="Confirmation Password">
-                                </div>
-                                <div class="form-group mt-4 mb-4">
-                                  <input class="btn btn-primary form-control" type="submit" value="Create">
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                </main>
-                @include('WEB.home.footer')
+                </div>
+            </div>
+
+        </div>
+                <!-- /.container-fluid -->
+
+    </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            @include('WEB.home.footer')
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Logout Of Admin Page?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
             </div>
         </div>
-@endsection
+    </div> -->

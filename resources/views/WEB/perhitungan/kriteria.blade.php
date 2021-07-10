@@ -1,23 +1,27 @@
+
 @extends('WEB.layout.app')
 @section('title','Spk Cafe Admin')
 @section('content')
-@include('WEB.home.navbar')
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                    <h2 class="mt-4">Proses Perhitungan Kriteria</h2>
 
-                    <!-- <div>
-                    <a href="{{ url('user/create')}}" class="btn btn-primary btn-lg mt-4 mb-4 align-right"> Create Admin</a>
-                    </div> -->
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    @include('WEB.home.navbar')
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                    <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Matriks Perbandingan Kriteria
-                            </div>
-                            <div class="card-body">
-                            <table class="table table-striped">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Proses Perhitungan Kriteria</h1>
+                    </div>
+
+                    <!-- DataTables perbandingan Kriteria Cafe -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Matriks Perbandingan Kriteria</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th scope="col">-</th>
@@ -154,34 +158,37 @@
                                             <th>28,5</th>
                                     </tr>
                                 </tbody>
-                            </table>
-                        </div>
-                        </div>
-
-                        <div class="card mt-4 mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Kriteria
+                                </table>
                             </div>
-                            <div class="card-body">
-                            <table class="table table-striped">
+                        </div>
+                    </div>
+
+                        <!-- DataTables Jumlah Kriteria Cafe -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Kriteria</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" width="100%" cellspacing="0">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Jumlah Kriteria</th>
                                             <th>9</th>
                                     </tr>
                                 </tbody>
-                            </table>
+                                </table>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Matriks Nilai Kriteria (Normalisasi)
-                            </div>
-                            <div class="card-body">
-                            <table class="table table-striped">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Matriks Nilai Kriteria (Normalisasi)</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th scope="col">-</th>
@@ -317,17 +324,18 @@
                                             <th>0,111</th>
                                     </tr>
                                 </tbody>
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card mt-4 mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Bobot Kriteria
-                            </div>
-                            <div class="card-body">
-                            <table class="table table-striped">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Bobot Kriteria</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th scope="col">Kriteria</th>
@@ -372,11 +380,51 @@
                                             <td>0,111</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </main>
-                @include('WEB.home.footer')
+
+                </div>
+            </div>
+
+        </div>
+                <!-- /.container-fluid -->
+
+    </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            @include('WEB.home.footer')
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Logout Of Admin Page?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
             </div>
         </div>
-@endsection
+    </div> -->

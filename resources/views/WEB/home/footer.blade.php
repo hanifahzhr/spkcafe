@@ -1,7 +1,7 @@
-<footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; CariCafe 2021</div>
-                        </div>
-                    </div>
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; CariCafe 2021</span>
+        </div>
+    </div>
 </footer>
