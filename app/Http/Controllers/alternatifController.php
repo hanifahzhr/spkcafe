@@ -59,6 +59,19 @@ class alternatifController extends Controller
     'rating'=>$request->rating,
     'deskripsi'=>$request->deskripsi,
     ]);
+
+    // konversi::create ([
+    //   gimana caranya biar dapet value dari id yg dipilih dari request, nanti valuenya dikirim ke db konversi?
+    // 'idcafe'=>$request->idcafe,
+    // if ($request->fasilitas == ('1' || '2' || '3' || '4' || '5')) {
+    //   $fas = '1';
+    // }else if ($request->fasilitas == ('8')) {
+    //   $fas = '2';
+    // }
+    // 'fasilitas'=>$fas, ketika gua klik id fasilitas 2, valuenya bisa keambil
+    // ]);
+
+    
     return redirect('alternatif');
   }
 
