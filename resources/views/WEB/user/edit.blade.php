@@ -19,7 +19,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Edit Data Admin</h6>
                         </div>
                         <div class="card-body">
-                        <form>
+                        <!-- <form>
                                 <div class="form-group mt-4">
                                   <label for="inputnama">Nama </label>
                                   <input type="nama" class="form-control" id="namaadmin" placeholder="Nama Lengkap">
@@ -43,7 +43,10 @@
                                 <div class="form-group mt-4 mb-4">
                                   <input class="btn btn-success form-control" type="submit" value="Update">
                                 </div>
-                            </form>
+                            </form> -->
+                            {!! Form::model($user, ['method' => 'PATCH', 'action' => ['userController@update', $user->id]]) !!}
+                            @include('WEB.user.form', ['submitButtonText' => 'Update'])
+                            {!! Form::close() !!}
                         </div>
                     </div>
 

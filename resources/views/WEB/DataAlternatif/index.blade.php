@@ -14,6 +14,8 @@
                         <h1 class="h3 mb-0 text-gray-800">Alternatif Cafe</h1>
                     </div>
 
+                    @include('WEB._partial.flash_message')
+
                     <div class="d-flex justify-content-end">
                         <div>
                             <a href="{{ url('alternatif/create')}}" class="btn btn-primary mt-4 mb-4 align-right"> Create Alternatif</a>
@@ -34,27 +36,48 @@
                                         <th>No</th>
                                         <th>Id Cafe</th>
                                         <th>Nama Cafe</th>
-                                        <th>Image</th>
+                                        <th>Alamat</th>
+                                        <th>No Telepon</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
-                                    @foreach($alternatif_list as $alternatif)
                                     <tbody>
+                                    <?php $no = 0;?>
+                                        @foreach($alternatif_list as $alternatif)
+                                    <?php $no++;?>
                                         <tr>
-                                            <td>{{ $alternatif->id}}</td>
+                                            <td>{{ $no }}</td>
                                             <td>{{ $alternatif->idcafe}}</td>
                                             <td>{{ $alternatif->nama_cafe}}</td>
-                                            <td>-</td>
+                                            <td>{{ $alternatif->alamat}}</td>
+                                            <td>{{ $alternatif->telepon}}</td>
                                             <td>
-                                                <a href="{{ url('alternatif/'.$alternatif->id.'/detail')}}" class="btn btn-success"> 
-                                                    <i class="far fa-list-alt"></i>
-                                                </a>
-                                                <a href="{{ url('alternatif/edit')}}" class="btn btn-warning"> 
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <a href="{{ url('alternatif/'.$alternatif->id.'/delete')}}" class="btn btn-danger">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="mr-1">
+                                                    <a href="{{url('alternatif/'.$alternatif->id)}}" class="btn btn-success"> 
+                                                        <i class="far fa-list-alt"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="mr-1">
+                                                    <a href="{{ url('alternatif/'.$alternatif->id.'/edit')}}" class="btn btn-warning"> 
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </div class="mr-1">
+                                                <!-- <a> {{url('alternatif/'.$alternatif->id.'/delete')}}
+                                                    {!! Form::open(['method' => 'DELETE', 'action' => ['alternatifController@destroy', $alternatif->id]]) !!}
+                                                    {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+                                                    {!! Form::close() !!}
+                                                </a> -->
+                                                <div class="box-button">
+                                                    {!! Form::open(['method' => 'DELETE', 'action' =>
+                                                        ['alternatifController@destroy', $alternatif->id]]) !!}
+                                                    {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+                                                    {!! Form::close() !!}                                                
+                                                </div>
+                                                <!-- <a href="{{ url('alternatif/'.$alternatif->id.'/delete')}}" class="btn btn-danger">
                                                     <i class="fas fa-trash-alt"></i>
-                                                </a>
+                                                </a> -->
+                                            </div>
                                             </td>
                                         </tr>
                                         @endforeach

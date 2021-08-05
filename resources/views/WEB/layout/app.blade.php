@@ -44,7 +44,10 @@
     <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script>
     <script src="{{asset('admin/js/demo/datatables-demo.js')}}"></script>
+    
 
+    
+    
     @yield('script')
     
     </body>

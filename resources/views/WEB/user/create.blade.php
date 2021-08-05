@@ -19,31 +19,9 @@
                             <h6 class="m-0 font-weight-bold text-primary">Create Data Admin</h6>
                         </div>
                         <div class="card-body">
-                        <form>
-                                <div class="form-group mt-4">
-                                  <label for="inputnama">Nama </label>
-                                  <input type="nama" class="form-control" id="namaadmin" placeholder="Nama Lengkap">
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputemail">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="name@admin.co.id">
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputlevel">Level </label>
-                                    <input class="form-control" type="text" placeholder="Admin" readonly>
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputpass">Password</label>
-                                    <input type="password" class="form-control" id="pass" placeholder="Password">
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label for="inputpass">Confirmation Password</label>
-                                    <input type="password" class="form-control" id="conpass" placeholder="Confirmation Password">
-                                </div>
-                                <div class="form-group mt-4 mb-4">
-                                  <input class="btn btn-primary form-control" type="submit" value="Create">
-                                </div>
-                            </form>
+                            {!! Form::open(['url' => 'datauser']) !!}
+                            @include('WEB.user.form', ['submitButtonText' => 'Create'])
+                            {!! Form::close() !!}
                         </div>
                     </div>
 

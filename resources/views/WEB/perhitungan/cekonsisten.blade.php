@@ -1,4 +1,3 @@
-
 @extends('WEB.layout.app')
 @section('title','Spk Cafe Admin')
 @section('content')

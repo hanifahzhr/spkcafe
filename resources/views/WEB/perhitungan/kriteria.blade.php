@@ -20,6 +20,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Matriks Perbandingan Kriteria</h6>
                         </div>
                         <div class="card-body">
+                            @if (!empty($matriks_perbandingan_list))
                             <div class="table-responsive">
                                 <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
@@ -36,129 +37,38 @@
                                         <th scope="col">Rating</th>
                                     </tr>
                                 </thead>
+                                @foreach($matriks_perbandingan_list as $matriks_perbandingan)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Fasilitas</th>
-                                            <td>1</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>4</td>
-                                            <td>9</td>
-                                            <td>7</td>
+                                            <td>{{ $matriks_perbandingan->nama}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_fas}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_lok}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_var}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_ras}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_har}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_pel}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_area}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_waktu}}</td>
+                                            <td>{{ $matriks_perbandingan->mat_rat}}</td>
                                     </tr>
+                                    @endforeach
                                     <tr>
-                                        <th scope="row">Lokasi</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Variasi Menu</th>
-                                            <td>0,2</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>0,25</td>
-                                            <td>0,333</td>
-                                            <td>0,25</td>
-                                            <td>0,5</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rasa</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Harga</th>
-                                            <td>0,333</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>0,5</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Pelayanan</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Area Cafe</th>
-                                            <td>0,25</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>0,333</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>1</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Waktu Operasional</th>
-                                            <td>0,111</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>0,143</td>
-                                            <td>0,2</td>
-                                            <td>0,142</td>
-                                            <td>0,25</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rating</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Jumlah</th>
-                                            <th>2,58</th>
-                                            <th>28,5</th>
-                                            <th>20,333</th>
-                                            <th>5,626</th>
-                                            <th>9,533</th>
-                                            <th>5,626</th>
-                                            <th>14,416</th>
-                                            <th>40</th>
-                                            <th>28,5</th>
+                                        <th>Jumlah</th>
+                                        <th>{{ $sumFas }}</th>
+                                        <th>{{ $sumLok }}</th>
+                                        <th>{{ $sumVar }}</th>
+                                        <th>{{ $sumRas }}</th>
+                                        <th>{{ $sumHar }}</th>
+                                        <th>{{ $sumPel }}</th>
+                                        <th>{{ $sumArea }}</th>
+                                        <th>{{ $sumWaktu }}</th>
+                                        <th>{{ $sumRat }}</th>
                                     </tr>
                                 </tbody>
-                                </table>
+                            </table>
+                                @else
+                                    <p>tidak ada data</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -174,7 +84,7 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">Jumlah Kriteria</th>
-                                            <th>9</th>
+                                            <th>{{ $count_kriteria }}</th>
                                     </tr>
                                 </tbody>
                                 </table>
@@ -205,125 +115,30 @@
                                         
                                     </tr>
                                 </thead>
+                                @foreach($matriks_perbandingan_list as $matriks)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Fasilitas</th>
-                                            <td>1</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>4</td>
-                                            <td>9</td>
-                                            <td>7</td>
-                                            <th>0,111</th>
+                                        <td>{{ $matriks->nama}}</td>
+                                        <td>{{round($matriks->mat_fas/$sumFas,3)}}</td>
+                                        <td>{{round($matriks->mat_lok/$sumLok,3)}}</td>
+                                        <td>{{round($matriks->mat_var/$sumVar,3)}}</td>
+                                        <td>{{round($matriks->mat_ras/$sumRas,3)}}</td>
+                                        <td>{{round($matriks->mat_har/$sumHar,3)}}</td>
+                                        <td>{{round($matriks->mat_pel/$sumPel,3)}}</td>
+                                        <td>{{round($matriks->mat_area/$sumArea,3)}}</td>
+                                        <td>{{round($matriks->mat_waktu/$sumWaktu,3)}}</td>
+                                        <td>{{round($matriks->mat_rat/$sumRat,3)}}</td>
+                                        <td>
+                                            {{
+                                                (round($matriks->mat_fas/$sumFas,3))+ (round($matriks->mat_lok/$sumLok,3)) + (round($matriks->mat_var/$sumVar,3)) + (round($matriks->mat_ras/$sumRas,3)) + 
+                                                (round($matriks->mat_har/$sumHar,3)) + (round($matriks->mat_pel/$sumPel,3)) + (round($matriks->mat_area/$sumArea,3)) + (round($matriks->mat_waktu/$sumWaktu,3)) +
+                                                (round($matriks->mat_rat/$sumRat,3))
+                                            }}
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Lokasi</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Variasi Menu</th>
-                                            <td>0,2</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>0,25</td>
-                                            <td>0,333</td>
-                                            <td>0,25</td>
-                                            <td>0,5</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rasa</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Harga</th>
-                                            <td>0,333</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>0,5</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Pelayanan</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Area Cafe</th>
-                                            <td>0,25</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>0,333</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>1</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Waktu Operasional</th>
-                                            <td>0,111</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>0,143</td>
-                                            <td>0,2</td>
-                                            <td>0,142</td>
-                                            <td>0,25</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rating</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,111</th>
-                                    </tr>
+                                    
                                 </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>
@@ -342,44 +157,22 @@
                                         <th scope="col">Bobot Kriteria</th>
                                     </tr>
                                 </thead>
+                                @foreach($matriks_perbandingan_list as $matriks)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Fasilitas</th>
-                                            <td>0,111</td>
+                                        <th scope="row">{{ $matriks->nama}}</th>
+                                        <td>
+                                        {{
+                                        round(((round($matriks->mat_fas/$sumFas,3))+ (round($matriks->mat_lok/$sumLok,3)) + (round($matriks->mat_var/$sumVar,3)) + 
+                                                (round($matriks->mat_ras/$sumRas,3)) + (round($matriks->mat_har/$sumHar,3))+(round($matriks->mat_pel/$sumPel,3)) + 
+                                                (round($matriks->mat_area/$sumArea,3)) + (round($matriks->mat_waktu/$sumWaktu,3)) + 
+                                                (round($matriks->mat_rat/$sumRat,3))) / ($count_kriteria),3)
+                                        }}
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Lokasi</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Variasi Menu</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rasa</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Harga</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Pelayanan</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Area Cafe</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Waktu Operasional</th>
-                                            <td>0,111</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rating</th>
-                                            <td>0,111</td>
-                                    </tr>
+                                    
                                 </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>

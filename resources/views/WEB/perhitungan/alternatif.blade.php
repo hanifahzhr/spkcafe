@@ -20,6 +20,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Konversi Nilai Alternatif</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($alternatif))
                             <div class="table-responsive">
                                 <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
@@ -36,213 +37,39 @@
                                         <th scope="col">Rating</th>
                                     </tr>
                                 </thead>
+                                @foreach($alternatif as $alter)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Keibar Pamulang</th>
-                                            <td>1</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>4</td>
-                                            <td>9</td>
-                                            <td>7</td>
+                                        <th scope="row">{{$alter->nama_cafe}}</th>
+                                            <td>{{$alter->nilai_fasilitas}}</td>
+                                            <td>{{$alter->nilai_lokasi}}</td>
+                                            <td>{{$alter->nilai_menu}}</td>
+                                            <td>{{$alter->nilai_rasa}}</td>
+                                            <td>{{$alter->nilai_harga}}</td>
+                                            <td>{{$alter->nilai_pelayanan}}</td>
+                                            <td>{{$alter->nilai_area}}</td>
+                                            <td>{{$alter->nilai_operasional}}</td>
+                                            <td>{{$alter->nilai_rating}}</td>
                                     </tr>
+                                    @endforeach
                                     <tr>
-                                        <th scope="row">Bersenyawa Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Praja</th>
-                                            <td>0,2</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>0,25</td>
-                                            <td>0,333</td>
-                                            <td>0,25</td>
-                                            <td>0,5</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Fat Bubble Cafe Bintaro</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ruang Jenuh Coffee</th>
-                                            <td>0,333</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>0,5</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Upnormal Coffee Roasters Bintaro</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Bolank</th>
-                                            <td>0,25</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>0,333</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>1</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Routine Cafe and Eatary</th>
-                                            <td>0,111</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>0,143</td>
-                                            <td>0,2</td>
-                                            <td>0,142</td>
-                                            <td>0,25</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Mixmi Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Basecamp Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Alaric Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sinkron Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Omni Kopi Bintaro</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Level Up Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Manyar</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ol'Pops Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Jumlah</th>
-                                            <th>1</th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th>5</th>
-                                            <th>6</th>
-                                            <th>7</th>
-                                            <th>8</th>
-                                            <th>9</th>
+                                        <th>Jumlah</th>
+                                        <th>{{ $sumFas }}</th>
+                                        <th>{{ $sumLok }}</th>
+                                        <th>{{ $sumVar }}</th>
+                                        <th>{{ $sumRas }}</th>
+                                        <th>{{ $sumHar }}</th>
+                                        <th>{{ $sumPel }}</th>
+                                        <th>{{ $sumArea }}</th>
+                                        <th>{{ $sumWaktu }}</th>
+                                        <th>{{ $sumRat }}</th>
+                                        
                                     </tr>
                                 </tbody>
                                 </table>
+                                @else
+                                    <p>tidak ada data</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -253,6 +80,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Perhitungan Bobot Prioritas Alternatif</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($alternatif))
                             <div class="table-responsive">
                                 <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
@@ -269,201 +97,26 @@
                                         <th scope="col">Rating</th>
                                     </tr>
                                 </thead>
+                                @foreach($alternatif as $alter)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Keibar Pamulang</th>
-                                            <td>1</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>4</td>
-                                            <td>9</td>
-                                            <td>7</td>
+                                        <th scope="row">{{$alter->nama_cafe}}</th>
+                                            <td>{{round(($alter->nilai_fasilitas)/$sumFas,3)}}</td>
+                                            <td>{{round(($alter->nilai_lokasi)/$sumLok,3)}}</td>
+                                            <td>{{round(($alter->nilai_menu)/$sumVar,3)}}</td>
+                                            <td>{{round(($alter->nilai_rasa)/$sumRas,3)}}</td>
+                                            <td>{{round(($alter->nilai_harga)/$sumHar,3)}}</td>
+                                            <td>{{round(($alter->nilai_pelayanan)/$sumPel,3)}}</td>
+                                            <td>{{round(($alter->nilai_area)/$sumArea,3)}}</td>
+                                            <td>{{round(($alter->nilai_operasional)/$sumWaktu,3)}}</td>
+                                            <td>{{round(($alter->nilai_rating)/$sumRat,3)}}</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Bersenyawa Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Praja</th>
-                                            <td>0,2</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>0,25</td>
-                                            <td>0,333</td>
-                                            <td>0,25</td>
-                                            <td>0,5</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Fat Bubble Cafe Bintaro</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ruang Jenuh Coffee</th>
-                                            <td>0,333</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>0,5</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Upnormal Coffee Roasters Bintaro</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Bolank</th>
-                                            <td>0,25</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>0,333</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>1</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Routine Cafe and Eatary</th>
-                                            <td>0,111</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>0,143</td>
-                                            <td>0,2</td>
-                                            <td>0,142</td>
-                                            <td>0,25</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Mixmi Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Basecamp Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Alaric Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sinkron Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Omni Kopi Bintaro</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Level Up Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Manyar</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ol'Pops Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                                 </table>
+                                @else
+                                    <p>tidak ada data</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -473,6 +126,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Matriks Total Prioritas Global</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($alternatif))
                             <div class="table-responsive">
                                 <table class="table table-striped" width="100%" cellspacing="0">
                                 <thead>
@@ -488,229 +142,41 @@
                                         <th scope="col">Waktu Operasional</th>
                                         <th scope="col">Rating</th>
                                         <th scope="col">Hasil</th>
+                                        <th scope="col">Ranking</th>
                                     </tr>
                                 </thead>
+                                @foreach($alternatif as $alter)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Keibar Pamulang</th>
-                                            <td>1</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>4</td>
-                                            <td>9</td>
-                                            <td>7</td>
-                                            <th>0,001</th>
+                                        <th scope="row">{{$alter->nama_cafe}}</th>
+                                            <td>{{ $a = round((($alter->nilai_fasilitas)/$sumFas)*$bfasilitas,3)}}</td>
+                                            <td>{{ $b = round((($alter->nilai_lokasi)/$sumLok)*$blokasi,3)}}</td>
+                                            <td>{{ $c = round((($alter->nilai_menu)/$sumVar)*$bvariasi,3)}}</td>
+                                            <td>{{ $d = round((($alter->nilai_rasa)/$sumRas)*$brasa,3)}}</td>
+                                            <td>{{ $e = round((($alter->nilai_harga)/$sumHar)*$bharga,3)}}</td>
+                                            <td>{{ $f = round((($alter->nilai_pelayanan)/$sumPel)*$bpelayanan,3)}}</td>
+                                            <td>{{ $g = round((($alter->nilai_area)/$sumArea)*$barea,3)}}</td>
+                                            <td>{{ $h = round((($alter->nilai_operasional)/$sumWaktu)*$bwaktu,3)}}</td>
+                                            <td>{{ $i = round((($alter->nilai_rating)/$sumRat)*$brating,3)}}</td>
+                                            <td class="total">{{$total = $a+$b+$c+$d+$e+$f+$g+$h+$i}}</td>
+                                            <td class="rank"></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Bersenyawa Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Praja</th>
-                                            <td>0,2</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>0,25</td>
-                                            <td>0,333</td>
-                                            <td>0,25</td>
-                                            <td>0,5</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Fat Bubble Cafe Bintaro</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ruang Jenuh Coffee</th>
-                                            <td>0,333</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>0,5</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Upnormal Coffee Roasters Bintaro</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Bolank</th>
-                                            <td>0,25</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>0,333</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>1</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Routine Cafe and Eatary</th>
-                                            <td>0,111</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>0,143</td>
-                                            <td>0,2</td>
-                                            <td>0,142</td>
-                                            <td>0,25</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Mixmi Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Basecamp Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Alaric Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sinkron Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Omni Kopi Bintaro</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Level Up Cafe</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Kopi Manyar</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Ol'Pops Coffee</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,001</th>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                                 </table>
+                                @else
+                                    <p>tidak ada data</p>
+                                @endif
                             </div>
                         </div>
                     </div>
-
+                
                 </div>
             </div>
 
         </div>
                 <!-- /.container-fluid -->
-
+                
     </div>
             <!-- End of Main Content -->
 
@@ -723,11 +189,29 @@
 
     </div>
     <!-- End of Page Wrapper -->
+    
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    
+    @endsection
+        @section('script')
+        <script>
+                    $(document).ready(function() {
+                    $(".total")
+                        .map(function(){return $(this).text()})
+                        .get()
+                        .sort(function(a,b){return a - b })
+                        .reduce(function(a, b){ if (b != a[0]) a.unshift(b); return a }, [])
+                        .forEach((v,i)=>{
+                    $('.total').filter(function() {return $(this).text() == v;}).next().text(i + 1);
+                    });
+                });
+        </script>
+
+    @endsection
 
     <!-- Logout Modal-->
     <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

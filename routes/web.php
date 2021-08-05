@@ -25,8 +25,9 @@ Route::get('/', function () {
 // Route::get('/alternatif', 'alternatifController@alternatif')->name('Alternatif');
 // Route::get ('alternatif/{alternatif}','alternatifController@show');
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['register' => false]);
 
 // DASHBOARD
 Route::get ('/dashboard','DashboardController@index')->name('dashboard');
@@ -41,14 +42,20 @@ Route::get ('/datakriteria/{id_kriteria}','DataKriteriaController@destroy');
 
 // DATA ALTERNATIF
 
-Route::get ('alternatif','alternatifController@index')->name('alternatif');
-Route::get ('alternatif/create','alternatifController@create')->name('createdataalternatif');
-Route::post ('alternatif/store','alternatifController@store')->name('storedataalternatif');
-Route::get ('alternatif/edit','alternatifController@update')->name('updatealternatif');
-Route::get ('alternatif/{id}/detail','alternatifController@show')->name('showdataalternatif');
+Route::resource('alternatif', 'alternatifController');
+// Route::get ('alternatif','alternatifController@index')->name('alternatif');
+// Route::get ('alternatif/create','alternatifController@create')->name('createdataalternatif');
+// Route::get ('alternatif/{id}/detail','alternatifController@show')->name('showdataalternatif');
+// Route::post ('alternatif/store','alternatifController@store')->name('storedataalternatif');
+// Route::get ('alternatif/{id}/edit','alternatifController@edit')->name('editalternatif');
+// Route::PATCH ('alternatif/{id}', 'alternatifController@update')->name('updatealternatif');
+
+// tidak dipake
 //Route::post ('alternatif/id_alternatif','alternatifController@store')->name('storedataalternatif');
 //Route::get ('alternatif/{id_alternatif}','alternatifController@destroy')->name('destroydataalternatif');
-Route::get ('alternatif/{id}/delete','alternatifController@delete')->name('deletedataalternatif');
+//----------------//
+
+// Route::get ('alternatif/{id}/delete','alternatifController@delete')->name('deletedataalternatif');
 // PERHITUNGAN 
 Route::get ('hitungkriteria', 'perhitunganController@kriteria')->name('hitungkriteria');
 Route::get ('hitungkonsisten', 'perhitunganController@konsisten')->name('hitungkonsisten');
@@ -57,17 +64,16 @@ Route::get ('hitungalternatif', 'perhitunganController@alternatif')->name('hitun
 
 
 // USER 
-Route::get ('user', 'userController@user')->name('user');
-Route::get ('user/create', 'userController@create')->name('createuser');
-Route::get ('user/edit', 'userController@update')->name('updateuser');
+
+// Route::get ('datauser', 'userController@user')->name('user');
+// Route::get ('datauser/create', 'userController@create')->name('createuser');
+// Route::get ('datauser/{id}/edit','userController@edit')->name('edituser');
+// Route::get ('datauser/edit', 'userController@update')->name('updateuser');
+Route::resource('datauser', 'userController');
 
 // RANKING 
 Route::get ('ranking', 'rankingController@ranking')->name('ranking');
-// DATA
-// Route::get ('alternatif','alternatifController@index');
-// Route::get ('alternatif','alternatifController@index');
-// Route::get ('alternatif','alternatifController@index');
-// Route::get ('alternatif','alternatifController@index');
-// Route::get ('alternatif','alternatifController@index');
-// Route::get ('alternatif','alternatifController@index');
+
+// HOME USER
+Route::get ('homeuser', 'HomeuserController@index')->name('homeuser');
 

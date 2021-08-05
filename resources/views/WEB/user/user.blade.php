@@ -10,22 +10,25 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-2">
                         <h1 class="h3 mb-0 text-gray-800">Kelola Admin</h1>
                     </div>
 
+                    @include('WEB._partial.flash_message')
+
                     <div class="d-flex justify-content-end">
                         <div>
-                            <a href="{{ url('user/create')}}" class="btn btn-primary mt-4 mb-4 align-right"> Create Admin</a>
+                            <a href="{{ url('datauser/create')}}" class="btn btn-primary mt-4 mb-4 align-right"> Create Admin</a>
                         </div>
                     </div>
-
+                    
                     <!-- DataTables Admin -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
                         </div>
                         <div class="card-body">
+                        @if (count($user_list) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -38,29 +41,42 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $i = 0; ?>
+                                        <?php foreach($user_list as $user): ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Hanifah</td>
-                                        <td>hanifah@admin.co.id</td>
-                                        <td>Admin</td>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->level }}</td>
                                         <td>
-                                        <a href="{{ url('user/edit')}}" class="btn btn-warning"> 
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                        </a>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="mr-1">
+                                                    <a href="{{url('datauser/'.$user->id.'/edit')}}" class="btn btn-warning"> 
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="box-button">
+                                                    {!! Form::open(['method' => 'DELETE', 'action' =>
+                                                        ['userController@destroy', $user->id]]) !!}
+                                                    {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) !!}
+                                                    {!! Form::close() !!}                                                
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
+                                @else
+                                    <p>Tidak ada data user.</p>
+                                @endif
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-
+            
         </div>
                 <!-- /.container-fluid -->
 

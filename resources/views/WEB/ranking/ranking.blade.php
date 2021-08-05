@@ -1,4 +1,3 @@
-
 @extends('WEB.layout.app')
 @section('title','Spk Cafe Admin')
 @section('content')
@@ -20,10 +19,11 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Ranking Cafe</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($alternatif))
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                        <tr class="table-secondary"> 
+                                        <tr> 
                                             <th>No</th>
                                             <th>Id Cafe</th>
                                             <th>Nama Cafe</th>
@@ -31,16 +31,42 @@
                                             <th>Ranking</th>
                                         </tr>
                                     </thead>
+                                    <?php $no = 0;?>
+                                    @foreach($alternatif as $alter)
+                                    @php
+                                        $a = round((($alter->nilai_fasilitas)/$sumFas)*$bfasilitas,4);
+                                        $b = round((($alter->nilai_lokasi)/$sumLok)*$blokasi,4);
+                                        $c = round((($alter->nilai_menu)/$sumVar)*$bvariasi,4);
+                                        $d = round((($alter->nilai_rasa)/$sumRas)*$brasa,4);
+                                        $e = round((($alter->nilai_harga)/$sumHar)*$bharga,4);
+                                        $f = round((($alter->nilai_pelayanan)/$sumPel)*$bpelayanan,4);
+                                        $g = round((($alter->nilai_area)/$sumArea)*$barea,4);
+                                        $h = round((($alter->nilai_operasional)/$sumWaktu)*$bwaktu,4);
+                                        $i = round((($alter->nilai_rating)/$sumRat)*$brating,4);
+
+                                        $jumlah = ($a+$b+$c+$d+$e+$f+$g+$h+$i);
+                                    @endphp
+                                    <?php $no++;?>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>A1</td>
-                                            <td>Keibar Pamulang</td>
-                                            <td>9,999</td>
-                                            <td>1</td>
+                                            <td>{{$no}}</td>
+                                            <td>{{ $alter->idcafe }}</td>
+                                            <td>{{ $alter->nama_cafe}}</td>
+                                            <td class="total"> 
+                                                
+                                               {{
+                                                    $jumlah
+                                                }}
+                                                
+                                            </td>
+                                            <td class="rank"></td>
                                         </tr>
                                     </tbody>
+                                    @endforeach
                                 </table>
+                                @else
+                                    <p>tidak ada data</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -68,6 +94,23 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    @endsection
+        @section('script')
+        <script>
+                    $(document).ready(function() {
+                    $(".total")
+                        .map(function(){return $(this).text()})
+                        .get()
+                        .sort(function(a,b){return a - b })
+                        .reduce(function(a, b){ if (b != a[0]) a.unshift(b); return a }, [])
+                        .forEach((v,i)=>{
+                    $('.total').filter(function() {return $(this).text() == v;}).next().text(i + 1);
+                    });
+                });
+                </script>
+
+    @endsection
 
     <!-- Logout Modal-->
     <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

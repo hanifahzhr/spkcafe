@@ -1,5 +1,5 @@
-@extends('layout.master')
-
+@extends('WEB.layout.app')
+@section('title','Spk Cafe Admin')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -13,7 +13,6 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Detail Data Alternatif Cafe</h1>
                     </div>
-
                     <!-- DataTables Detail Alternatif Cafe -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -23,15 +22,15 @@
                             <div class="table-responsive">
                                 <table class="table table-striped" width="100%" cellspacing="0">
                                 <tbody>
-                                    <tr>
+                                    <!-- <tr>
                                         <div class="text-center">
                                             <img src="..." class="rounded" alt="...">
                                         </div>
-                                    </tr>
-                                    <tr>
+                                    </tr> -->
+                                    <!-- <tr>
                                         <th scope="row">No</th>
                                             <td>{{$alternatif->id}}</td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <th scope="row">Id Cafe</th>
                                             <td>{{$alternatif->idcafe}}</td>
@@ -49,44 +48,40 @@
                                             <td>{{$alternatif->telepon}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Fasilitas</th>
-                                            <td>{{$alternatif->fasilitas}}</td>
+                                        <th scope="row">Fasilitas Cafe</th>
+                                            <td>{{$alternatif->nama_fasilitas}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Lokasi</th>
-                                            <td>{{$alternatif->id}}</td>
+                                        <th scope="row">Lokasi Cafe</th>
+                                            <td>{{$alternatif->nama_lokasi}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Variasi Menu</th>
-                                            <td>{{$alternatif->variasi}}</td>
+                                            <td>{{$alternatif->nama_menu}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Rasa</th>
-                                            <td>{{$alternatif->rasa}}</td>
+                                            <td>{{$alternatif->nama_rasa}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Harga</th>
-                                            <td>{{$alternatif->harga}}</td>
+                                            <td>{{$alternatif->nama_harga}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Pelayanan</th>
-                                            <td>{{$alternatif->pelayanan}}</td>
+                                        <th scope="row">Pelayanan Cafe</th>
+                                            <td>{{$alternatif->nama_pelayanan}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Area Cafe</th>
-                                            <td>{{$alternatif->area}}</td>
+                                            <td>{{$alternatif->nama_area}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Waktu Operasional</th>
-                                            <td>{{$alternatif->waktu_operasional}}</td>
+                                        <th scope="row">Waktu Operasional Cafe</th>
+                                            <td>{{$alternatif->nama_operasional}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Rating</th>
-                                            <td>{{$alternatif->rating}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Deskripsi</th>
-                                            <td>{{$alternatif->deskripsi}}</td>
+                                        <th scope="row">Rating Cafe</th>
+                                            <td>{{$alternatif->nama_rating}}</td>
                                     </tr>
                                 </tbody>
                                 </table>

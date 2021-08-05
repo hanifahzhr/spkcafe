@@ -25,7 +25,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Data Cafe</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">16</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$jumlah_alternatif}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-coffee fa-2x text-gray-300"></i>
@@ -43,7 +43,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Data Akun Admin</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$jumlah_user}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa-user fa-2x text-gray-300"></i>
@@ -60,23 +60,29 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($user_list))
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
                                         <th>Nama Admin</th>
                                         <th>Email</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Hanifah</td>
-                                            <td>Hanifah@gmail.com</td>
+                                    @foreach($user_list as $user)
+                                        <tr class="text-center">
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                @else
+                                    <p>Tidak ada data user</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -87,23 +93,27 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Kriteria Cafe</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($kriteria_list))
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
                                     <thead>
-                                    <tr>
-                                        <th>No</th>
+                                    <tr class="text-center">
                                         <th>Id Kriteria</th>
                                         <th>Nama Kriteria</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>C01</td>
-                                            <td>Fasilitas</td>
+                                    @foreach($kriteria_list as $kriteria)
+                                        <tr class="text-center">
+                                            <td>{{ $kriteria->idx_kriteria}}</td>
+                                            <td>{{ $kriteria->nama_kriteria}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                @else
+                                    <p>Tidak ada data kriteria</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -114,23 +124,29 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Cafe</h6>
                         </div>
                         <div class="card-body">
+                        @if (!empty($alternatif_list))
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
                                     <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
                                         <th>Id Cafe</th>
                                         <th>Nama Cafe</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>A01</td>
-                                            <td>Kedai Roti Bakar (Keibar) Pamulang</td>
+                                    @foreach($alternatif_list as $alternatif)
+                                        <tr class="text-center">
+                                            <td>{{ $alternatif->id}}</td>
+                                            <td>{{ $alternatif->idcafe}}</td>
+                                            <td>{{ $alternatif->nama_cafe}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                @else
+                                    <p>Tidak ada data alternatif</p>
+                                @endif
                             </div>
                         </div>
                     </div>

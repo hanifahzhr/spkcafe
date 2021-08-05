@@ -23,11 +23,19 @@
 <hr class="sidebar-divider d-none d-md-block">
 
 <!-- Nav Item - Admin -->
+@if (!empty($halaman) && $halaman == 'user')
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('user')}}">
+    <a class="nav-link" href="{{ url('datauser')}}">
         <i class="fa fa-user"></i>
         <span>Data Akun Admin</span></a>
 </li>
+@else
+<li class="nav-item">
+    <a class="nav-link" href="{{ url('datauser')}}">
+        <i class="fa fa-user"></i>
+        <span>Data Akun Admin</span></a>
+</li>
+@endif
 
 <li class="nav-item">
     <a class="nav-link" href="{{ route('kriteria')}}">
@@ -36,7 +44,7 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('alternatif')}}">
+    <a class="nav-link" href="{{ url('alternatif')}}">
         <i class="fas fa-fw fa-table"></i>
         <span>Data Alternatif Cafe</span></a>
 </li>
@@ -56,10 +64,10 @@
         <span>Perhitungan SPK</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('hitungkriteria')}}">Perhitungan Kriteria</a>
-            <a class="collapse-item" href="{{ route('hitungkonsisten')}}">Perhitungan Uji<br> Konsistensi Kriteria</a>
-            <a class="collapse-item" href="{{ route('hitungalternatif')}}">Perhitungan Alternatif</a>
+        <div class="bg-gradient-primry py-2 collapse-inner rounded">
+            <a class="nav-link collapsed" href="{{ route('hitungkriteria')}}">Perhitungan Bobot Kriteria</a>
+            <a class="nav-link collapsed" href="{{ route('hitungkonsisten')}}">Perhitungan Uji<br> Konsistensi Kriteria</a>
+            <a class="nav-link collapsed" href="{{ route('hitungalternatif')}}">Perhitungan Alternatif</a>
         </div>
     </div>
 </li>
@@ -109,24 +117,35 @@
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
+            @if (Auth::check())
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                     <img class="img-profile rounded-circle"
-                        src="assets/img/undraw_profile_3.svg">
+                        src="{{asset('assets/img/undraw_profile_3.svg')}}">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                                document.getElementById('logout-form').submit();" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
+                        {{__('Logout')}}
                     </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}"
+                    method="POST" style="display: none;">
+                    @csrf 
+                    </form>
                 </div>
             </li>
-
+            @else
+                <li class="nav-item">
+	                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+	            </li>
+            @endif
         </ul>
 
     </nav>

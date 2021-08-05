@@ -37,125 +37,25 @@
                                         <th scope="col">Jumlah</th>
                                     </tr>
                                 </thead>
+                                @foreach($matriks_perbandingan_list as $matriks)
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Fasilitas</th>
-                                            <td>1</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>4</td>
-                                            <td>9</td>
-                                            <td>7</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Lokasi</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Variasi Menu</th>
-                                            <td>0,2</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>0,25</td>
-                                            <td>0,333</td>
-                                            <td>0,25</td>
-                                            <td>0,5</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rasa</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Harga</th>
-                                            <td>0,333</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <td>0,5</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Pelayanan</th>
-                                            <td>0,2</td>
-                                            <td>5</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>3</td>
-                                            <td>7</td>
-                                            <td>5</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Area Cafe</th>
-                                            <td>0,25</td>
-                                            <td>3</td>
-                                            <td>2</td>
-                                            <td>0,333</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>1</td>
-                                            <td>4</td>
-                                            <td>3</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Waktu Operasional</th>
-                                            <td>0,111</td>
-                                            <td>0,5</td>
-                                            <td>0,333</td>
-                                            <td>0,143</td>
-                                            <td>0,2</td>
-                                            <td>0,142</td>
-                                            <td>0,25</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <th>0,111</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rating</th>
-                                            <td>0,143</td>
-                                            <td>1</td>
-                                            <td>0,5</td>
-                                            <td>0,2</td>
-                                            <td>0,25</td>
-                                            <td>0,2</td>
-                                            <td>0,333</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <th>0,111</th>
+                                        <th>{{ $matriks->nama}}</th>
+                                        <td>{{ $a  = round(($matriks->mat_fas)*$bfasilitas,3)}}</td>
+                                        <td>{{ $b  = round(($matriks->mat_lok)*$blokasi,3)}}</td>
+                                        <td>{{ $c  = round(($matriks->mat_var)*$bvariasi,3)}}</td>
+                                        <td>{{ $d  = round(($matriks->mat_ras)*$brasa,3)}}</td>
+                                        <td>{{ $e  = round(($matriks->mat_har)*$bharga,3)}}</td>
+                                        <td>{{ $f  = round(($matriks->mat_pel)*$bpelayanan,3)}}</td>
+                                        <td>{{ $g  = round(($matriks->mat_area)*$barea,3)}}</td>
+                                        <td>{{ $h  = round(($matriks->mat_waktu)*$bwaktu,3)}}</td>
+                                        <td>{{ $i  = round(($matriks->mat_rat)*$brating,3)}}</td>
+                                        <th class="total">
+                                            {{ $total = $a+$b+$c+$d+$e+$f+$g+$h+$i }} 
+                                        </th>
                                     </tr>
                                 </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>
@@ -175,70 +75,91 @@
                                         <th scope="col">Jumlah Baris</th>
                                         <th scope="col">Bobot Kriteria</th>
                                         <th scope="col">Hasil</th>
+                                        <!-- <th scope="col">Cek</th> -->
                                     </tr>
                                 </thead>
+                                @php
+                                $cekbf=0;
+                                @endphp
+                                @foreach($matriks_perbandingan_list as $matriks)
+                                @php
+                                    $a1  = round(($matriks->mat_fas)*$bfasilitas,3);
+                                    $b1  = round(($matriks->mat_lok)*$blokasi,3);
+                                    $c1  = round(($matriks->mat_var)*$bvariasi,3);
+                                    $d1  = round(($matriks->mat_ras)*$brasa,3);
+                                    $e1  = round(($matriks->mat_har)*$bharga,3);
+                                    $f1  = round(($matriks->mat_pel)*$bpelayanan,3);
+                                    $g1  = round(($matriks->mat_area)*$barea,3);
+                                    $h1  = round(($matriks->mat_waktu)*$bwaktu,3);
+                                    $i1  = round(($matriks->mat_rat)*$brating,3);
+                                    $total1 = ($a1+$b1+$c1+$d1+$e1+$f1+$g1+$h1+$i1);
+
+
+                                    $b1 = round(($matriks->mat_fas)/$sumFas,3);
+                                    $b2 = round(($matriks->mat_lok)/$sumLok,3);
+                                    $b3 = round(($matriks->mat_var)/$sumVar,3);
+                                    $b4 = round(($matriks->mat_ras)/$sumRas,3);
+                                    $b5 = round(($matriks->mat_har)/$sumHar,3);
+                                    $b6 = round(($matriks->mat_pel)/$sumPel,3);
+                                    $b7 = round(($matriks->mat_area)/$sumArea,3);
+                                    $b8 = round(($matriks->mat_waktu)/$sumWaktu,3);
+                                    $b9 = round(($matriks->mat_rat)/$sumRat,3);
+                                    $totalboboot = round(($b1+$b2+$b3+$b4+$b5+$b6+$b7+$b8+$b9)/($count_kriteria),3);
+
+                                    $chasil = round($total1/$totalboboot,3);
+                                    $cek = round($chasil+$cekbf,3);
+                                    $cekbf = $cek;
+
+                                    $total = $cek;
+                                    
+                                    $a = round((($matriks->mat_fas)*$bfasilitas)/$bfasilitas,3);
+                                    $b = round((($matriks->mat_lok)*$blokasi)/$blokasi,3);
+                                    $c = round((($matriks->mat_var)*$bvariasi)/$bvariasi,3);
+                                    $d = round((($matriks->mat_ras)*$brasa)/$brasa,3);
+                                    $e = round((($matriks->mat_har)*$bharga)/$bharga,3);
+                                    $f = round((($matriks->mat_pel)*$bpelayanan)/$bpelayanan,3);
+                                    $g = round((($matriks->mat_area)*$barea)/$barea,3);
+                                    $h = round((($matriks->mat_waktu)*$bwaktu)/$bwaktu,3);
+                                    $i = round((($matriks->mat_rat)*$brating)/$brating,3);
+                                    $jumlah = ($a+$b+$c+$d+$e+$f+$g+$h+$i);
+
+                                    
+
+                                    
+
+
+                                @endphp
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Fasilitas</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
+                                        <th scope="row">{{ $matriks->nama}}</th>
+                                        <td>
+                                            {{$total1}} 
+                                        </td>
+                                        <td>
+                                        {{ $totalboboot }}
+                                        </td>
+                                            <th>
+                                                {{ $chasil }}
+                                            </th>
+                                            
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Lokasi</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Variasi Menu</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rasa</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Harga</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Pelayanan</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Area Cafe</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Waktu Operasional</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Rating</th>
-                                            <td>0,111</td>
-                                            <td>0,111</td>
-                                            <th>0,222</th>
-                                    </tr>
-                                    <tr>
+                                    @endforeach
+                                    <!-- <tr>
                                         <th scope="row">JUMLAH</th>
                                             <td>-</td>
                                             <td>-</td>
                                             <th>0,222</th>
+                                    </tr> -->
+                                    <tr>
+                                        <th>Jumlah</th>
+                                        <th>-</th>
+                                        <th>-</th>
+                                        <th class="total">
+                                            {{
+                                                $total
+                                            }}
+                                        </th>
                                     </tr>
-
                                 </tbody>
                                 </table>
                             </div>

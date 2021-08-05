@@ -30,12 +30,12 @@
                                         <th>Bobot</th>
                                     </tr>
                                     </thead>
-                                    @foreach($kriteria_list as $kriteria)
                                     <tbody>
+                                    @foreach($kriteria_list as $kriteria)
                                         <tr>
                                             <td>{{ $kriteria->idx_kriteria}}</td>
                                             <td>{{ $kriteria->nama_kriteria}}</td>
-                                            <td>bobot</td>
+                                            <td>{{ $kriteria->bobot}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -48,7 +48,7 @@
                     </div>
 
                     <!-- DataTables perbandingan Kriteria Cafe -->
-                    <div class="card shadow mb-4">
+                    <!-- <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Data Kriteria Cafe</h6>
                         </div>
@@ -194,7 +194,7 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kriteria;
+use App\alternatif;
+use App\User;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct() {
+        $this->middleware('auth');
+        // $this->middleware('admin');
+    }
+    
     public function index(){
         // $halaman = 'dashboard';
         // $kriteria_l = Kriteria::all();
-        return view('WEB.home.dashboard');
+        $halaman = 'kriteria';
+        $kriteria_list = Kriteria::all();
+
+        $halaman1 = 'alternatif';
+        $alternatif_list = alternatif::all();
+        $jumlah_alternatif = $alternatif_list->count();
+
+        $halaman2 = 'users';
+        $user_list = User::all();
+        $jumlah_user = $user_list->count();
+        return view('WEB.home.dashboard', compact('halaman', 'kriteria_list', 'alternatif_list', 'jumlah_alternatif', 
+                    'user_list', 'jumlah_user'));
     }
 
     /**
