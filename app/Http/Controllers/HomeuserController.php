@@ -42,4 +42,15 @@ class HomeuserController extends Controller
 
     // select alternatif.*, fasilitas_cafe.* from alternatif INNER JOIN fasilitas_cafe ON alternatif.id_fas = fasilitas_cafe.id_fas WHERE nama_fasilitas like '%wifi%' and nama_fasilitas like '%permainan%';
   }
+
+  public function search(Request $request){
+
+    $search = $request->search;
+    $alternatif = DB::table('alternatif')
+     ->where('nama_cafe','like',"%".$search."%")
+     ->get();
+    
+     dd($alternatif);
+     return view('WEB.homeuser.index', compact('alternatif'));
+  }
 }

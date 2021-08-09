@@ -76,4 +76,5 @@ Route::get ('ranking', 'rankingController@ranking')->name('ranking');
 // HOME USER
 Route::get ('homeuser', 'HomeuserController@index')->name('homeuser');
 Route::get('homeuser/cari', 'HomeuserController@cari');
+Route::get('homeuser/search', 'HomeuserController@search');
 

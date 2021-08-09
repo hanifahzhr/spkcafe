@@ -64,15 +64,24 @@
 
         <div class="carousel-inner" role="listbox">
 
+        
           <!-- Slide 1 -->
           <div class="carousel-item active" style="background: url(user/img/slide/roti.jpg);">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>Cari</span> Cafe</h2>
-                <div class="form-group has-search bg-transparant">
+                  <form action="{{ url('homeuser/search') }}" method="GET" class="form-inline">
+					          <input class="form-control-sm" type="text" name="search" placeholder="search" value="{{ old('search') }}">
+                      <button type="submit" class="btn btn-primary " title="Search" style="margin-right:5px;">
+						            <i class="fa fa-search"></i>
+					            </button>
+                    </input>
+					            
+				          </form>
+                <!-- <div class="form-group has-search bg-transparant">
                   <span class="fa fa-search form-control-feedback"></span>
                     <input type="text" class="form-control" placeholder="Search">
-                  </div>
+                  </div> -->
                 <!-- <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
                   <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
