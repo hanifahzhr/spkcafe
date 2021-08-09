@@ -35,7 +35,7 @@
     <div class="form-group">
 @endif
     {!! Form::label('level', 'Level:', ['class' => 'control-label']) !!}
-    {!! Form::text('Admin', 'Admin', ['class' => 'form-control', 'readonly', 'placeholder' => 'Admin', 'value' => 'Admin'], ) !!}
+    {!! Form::text('level', 'Admin', ['class' => 'form-control', 'readonly', 'placeholder' => 'Admin', 'value' => 'Admin'], ) !!}
     @if ($errors->has('level'))
         <span class="help-block">{{ $errors->first('level') }}</span>
     @endif

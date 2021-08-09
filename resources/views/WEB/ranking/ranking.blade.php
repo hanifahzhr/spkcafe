@@ -34,15 +34,15 @@
                                     <?php $no = 0;?>
                                     @foreach($alternatif as $alter)
                                     @php
-                                        $a = round((($alter->nilai_fasilitas)/$sumFas)*$bfasilitas,4);
-                                        $b = round((($alter->nilai_lokasi)/$sumLok)*$blokasi,4);
-                                        $c = round((($alter->nilai_menu)/$sumVar)*$bvariasi,4);
-                                        $d = round((($alter->nilai_rasa)/$sumRas)*$brasa,4);
-                                        $e = round((($alter->nilai_harga)/$sumHar)*$bharga,4);
-                                        $f = round((($alter->nilai_pelayanan)/$sumPel)*$bpelayanan,4);
-                                        $g = round((($alter->nilai_area)/$sumArea)*$barea,4);
-                                        $h = round((($alter->nilai_operasional)/$sumWaktu)*$bwaktu,4);
-                                        $i = round((($alter->nilai_rating)/$sumRat)*$brating,4);
+                                        $a = round((($alter->nilai_fasilitas)/$sumFas)*$bfasilitas,3);
+                                        $b = round((($alter->nilai_lokasi)/$sumLok)*$blokasi,3);
+                                        $c = round((($alter->nilai_menu)/$sumVar)*$bvariasi,3);
+                                        $d = round((($alter->nilai_rasa)/$sumRas)*$brasa,3);
+                                        $e = round((($alter->nilai_harga)/$sumHar)*$bharga,3);
+                                        $f = round((($alter->nilai_pelayanan)/$sumPel)*$bpelayanan,3);
+                                        $g = round((($alter->nilai_area)/$sumArea)*$barea,3);
+                                        $h = round((($alter->nilai_operasional)/$sumWaktu)*$bwaktu,3);
+                                        $i = round((($alter->nilai_rating)/$sumRat)*$brating,3);
 
                                         $jumlah = ($a+$b+$c+$d+$e+$f+$g+$h+$i);
                                     @endphp

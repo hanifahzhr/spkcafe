@@ -109,7 +109,8 @@ class perhitunganController extends Controller
             $bpelayanan = $bobot->pelayanan;
             $barea      = $bobot->area;  
             $bwaktu     = $bobot->waktu_operasional;
-            $brating    = $bobot->rating;   
+            $brating    = $bobot->rating;  
+
         }
 
         return view('WEB.perhitungan.konsisten', compact('halaman', 'matriks_perbandingan_list','bobot', 'bfasilitas', 'blokasi',
@@ -161,6 +162,7 @@ class perhitunganController extends Controller
         ->join('operasional_cafe','alternatif.id_operasional', '=', 'operasional_cafe.id_operasional')
         ->join('rating_cafe','alternatif.id_rating', '=', 'rating_cafe.id_rating')
         ->select('fasilitas_cafe.*','lokasi_cafe.*', 'menu_cafe.*', 'rasa_cafe.*', 'harga_cafe.*', 'pelayanan_cafe.*', 'area_cafe.*', 'operasional_cafe.*', 'rating_cafe.*','alternatif.*')
+        ->orderBy('id','asc')
         ->get();
 
         $sumFas     = DB::table('alternatif')->join('fasilitas_cafe','alternatif.id_fas', '=', 'fasilitas_cafe.id_fas')->sum('fasilitas_cafe.nilai_fasilitas');

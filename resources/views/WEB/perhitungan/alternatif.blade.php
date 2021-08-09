@@ -50,6 +50,7 @@
                                             <td>{{$alter->nilai_area}}</td>
                                             <td>{{$alter->nilai_operasional}}</td>
                                             <td>{{$alter->nilai_rating}}</td>
+                                        </th>
                                     </tr>
                                     @endforeach
                                     <tr>

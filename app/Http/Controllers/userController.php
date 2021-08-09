@@ -7,6 +7,7 @@ use App\User;
 use Validator;
 use Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 
 class userController extends Controller
 {
@@ -44,7 +45,7 @@ class userController extends Controller
         // Hash password.
         $data['password'] = bcrypt($data['password']);
 
-        DB::table('users')->insert($data);
+        User::create($data);
         // User::create($data);
         Session::flash('flash_message', 'Data Admin berhasil disimpan.');
 
@@ -81,7 +82,7 @@ class userController extends Controller
         }
         else {
             // Hapus password (password tidak diupdate).
-            $data = array_except($data, ['password']);
+            $data = Arr::except($data, ['password']);
         }
 
         $user->update($data);
